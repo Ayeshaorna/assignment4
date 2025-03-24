@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+    }
+
+    header {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    #home-page {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .tile {
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f5f5f5;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      width: 30%;
+      text-align: center;
+    }
+
+    .tile:hover {
+      transform: scale(1.05);
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+
+    a:hover {
+      color: #007BFF;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Restaurant Name</h1>
+    <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png" alt="Restaurant Logo">
+  </header>
+
+  <div id="home-page">
+    <div class="tile">
+      <a href="#" id="specials-link">Specials</a>
+    </div>
+    <div class="tile">
+      <a href="#" onclick="loadMenuItems('Lunch');">Menu</a>
+    </div>
+    <div class="tile">
+      <a href="#" onclick="loadMenuItems('Dinner');">Dinner</a>
+    </div>
+  </div>
+
+  <script>
+    // Array of available category short names
+    const categoryShortNames = ['Lunch', 'Dinner', 'Sushi', 'Breakfast', 'Desserts'];
+
+    // Randomly select a category
+    function getRandomCategory() {
+      const randomIndex = Math.floor(Math.random() * categoryShortNames.length);
+      return categoryShortNames[randomIndex];
+    }
+
+    // Function to simulate loading menu items for a specific category
+    function loadMenuItems(category) {
+      alert("Loading menu items for: " + category);
+      // You can add your code here to actually load the menu items for the category
+    }
+
+    // Update the Specials link with a random category short name
+    function updateSpecialsLink() {
+      const randomCategory = getRandomCategory();
+      const specialsLink = document.querySelector("#specials-link");
+      specialsLink.setAttribute('onclick', `loadMenuItems('${randomCategory}');`);
+    }
+
+    // Call the update function after the page loads
+    window.addEventListener("DOMContentLoaded", function () {
+      updateSpecialsLink();
+    });
+  </script>
+
+</body>
+
+</html>
